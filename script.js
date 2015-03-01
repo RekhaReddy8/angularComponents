@@ -25,21 +25,14 @@ function($scope,$window,$modal,$log){
       if($scope.myForm.form.$dirty){
           event.preventDefault();
 
-          $scope.modalInstance = $modal.open({ templateUrl: 'modalg.html', backdrop: 'static' });
+          $scope.modalInstance = $modal.open({ templateUrl: 'modal.html', backdrop: 'static' });
           $scope.modalInstance.result.then(function() {
-              if($scope.toAdminScreen === true)
-                  $location.path('/ui/admin');
-              else if($scope.toHomeScreen === true){
-                  $avaValuationService.avaPartOutModel.engineSerialNumber = '';
-                  $location.path('/ui/ava-home');
-              }
-              else
+              // IF ELSE STATEMENT BASED ON REQUIREMENTS
+              if{}
+              else{
                   $window.history.back();
+              }
               // SET ALL FORMS TO PRISTINE STATE
-              $scope.renameValuationForm.renameValuationForm.$setPristine(true);
-              $scope.engineInfoForm.engineInfoForm.$setPristine(true);
-              $scope.valuationNameForm.valuationNameForm.$setPristine(true);
-              $scope.valuationForm.valuationForm.$setPristine(true);
 
               return true;
           });
